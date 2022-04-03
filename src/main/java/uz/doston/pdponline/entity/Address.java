@@ -1,29 +1,28 @@
 package uz.doston.pdponline.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
-public class Room {
-
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private int number;
-    private int floor;
-    private double size;
+    @Column(nullable = false)
+    private String city;
 
-    @ManyToOne
-    @JoinColumn(name = "hotel_id")
-    private Hotel hotel;
+    @Column(nullable = false)
+    private String district;
+
+    @Column(nullable = false)
+    private String street;
+
 
 }
